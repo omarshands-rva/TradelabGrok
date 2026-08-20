@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Data & secrets (never commit)
+data/raw/
+data/processed/
+*.csv
+*.parquet
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Local research artifacts
+notebooks/output/
+reports/
+artifacts/
+runs/

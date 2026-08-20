@@ -1,0 +1,38 @@
+starting_cash: 100000.0
+symbols:
+  - SPY
+
+cost:
+  commission_per_share: 0.005
+  commission_min: 1.0
+  spread_bps: 2.0
+  slippage_bps: 1.0
+
+risk:
+  max_position_pct: 0.10
+  max_gross_exposure: 1.0
+  max_daily_loss_pct: 0.02
+  max_drawdown_pct: 0.08
+  risk_per_trade_pct: 0.005
+  kill_on_daily_breach: true
+  kill_on_drawdown_breach: true
+
+eval:
+  train_days: 252
+  test_days: 63
+  purge_days: 5
+  embargo_days: 5
+  n_monte_carlo: 1000
+  periods_per_year: 252
+
+session:
+  mode: paper
+  journal_dir: runs
+  heartbeat_every: 50
+  live_venue: unset
+  ib_enabled: false
+  ib_host: 127.0.0.1
+  ib_port: 7497
+  ib_client_id: 1
+  ib_account: ""
+  ib_fill_timeout_sec: 15.0
