@@ -4,10 +4,67 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>TradeLab Demo</title>
-<meta http-equiv="refresh" content="0;url=https://htmlpreview.github.io/?https://github.com/omarshands-rva/TradelabGrok/blob/main/docs/demo-full.html"/>
+<style>
+body{font-family:system-ui,sans-serif;background:#0a0e14;color:#e6edf3;margin:0;padding:2rem;line-height:1.5}
+a{color:#3d9cf0}
+.card{background:#111820;border:1px solid #1e2a3a;border-radius:12px;padding:1.25rem;margin:1rem 0}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem}
+.metric{background:#161d27;border:1px solid #1e2a3a;border-radius:10px;padding:1rem}
+.k{font-size:.7rem;text-transform:uppercase;color:#8b9cb3}
+.v{font-family:ui-monospace,monospace;font-size:1.2rem;font-weight:600}
+.pos{color:#3fb950}.neg{color:#f85149}
+h1{letter-spacing:-.03em} h1 span{color:#3d9cf0}
+.badge{display:inline-block;font-size:.75rem;color:#3d9cf0;border:1px solid rgba(61,156,240,.3);border-radius:999px;padding:.3rem .8rem;margin-bottom:1rem}
+</style>
 </head>
-<body style="background:#0a0e14;color:#e6edf3;font-family:system-ui;padding:2rem">
-<p>TradeLab demo — open local file <code>tradelab-demo.html</code> or see the full page below.</p>
+<body>
+<div class="badge">v0.5 · Own capital only</div>
+<h1>Trade<span>Lab</span></h1>
+<p>Systematic trading infrastructure — cost model, risk engine, evaluation harness, paper session, gated IB adapter.</p>
 <p><a href="https://github.com/omarshands-rva/TradelabGrok">GitHub repo</a></p>
+
+<div class="card">
+<h2>Paper session · momentum</h2>
+<div class="metrics">
+<div class="metric"><div class="k">Total return</div><div class="v neg">-0.65%</div></div>
+<div class="metric"><div class="k">Sharpe</div><div class="v neg">-0.297</div></div>
+<div class="metric"><div class="k">Max drawdown</div><div class="v">1.90%</div></div>
+<div class="metric"><div class="k">Trades</div><div class="v">62</div></div>
+<div class="metric"><div class="k">Win rate</div><div class="v">9.7%</div></div>
+<div class="metric"><div class="k">Peak equity</div><div class="v">$100,686</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Paper session · mean_reversion</h2>
+<div class="metrics">
+<div class="metric"><div class="k">Total return</div><div class="v pos">+1.53%</div></div>
+<div class="metric"><div class="k">Sharpe</div><div class="v pos">1.006</div></div>
+<div class="metric"><div class="k">Max drawdown</div><div class="v">0.94%</div></div>
+<div class="metric"><div class="k">Trades</div><div class="v">35</div></div>
+<div class="metric"><div class="k">Win rate</div><div class="v">22.9%</div></div>
+<div class="metric"><div class="k">Profit factor</div><div class="v pos">2.95</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>CLI</h2>
+<pre style="background:#161d27;padding:1rem;border-radius:8px;overflow:auto">python -m tradelab.cli paper --strategy momentum --bars 400
+python -m tradelab.cli eval --fast --strategy mean_reversion
+python -m tradelab.cli resume --journal runs/paper_momentum_ASSET.jsonl
+python -m tradelab.cli live --venue ib --ib-enable --ib-port 7497 --symbol SPY</pre>
+</div>
+
+<div class="card">
+<h2>IB safety gates</h2>
+<ol>
+<li>ib_insync installed</li>
+<li>Explicit --ib-enable</li>
+<li>TWS / Gateway connected</li>
+<li>Contract qualified</li>
+</ol>
+</div>
+
+<p style="color:#8b9cb3;font-size:.85rem">TradeLab · own capital only · private use</p>
 </body>
 </html>
